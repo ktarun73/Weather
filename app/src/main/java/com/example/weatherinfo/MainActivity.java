@@ -1,7 +1,5 @@
 package com.example.weatherinfo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +7,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.androdocs.httprequest.HttpRequest;
 
@@ -18,10 +18,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import es.dmoral.toasty.Toasty;
+
 public class MainActivity extends AppCompatActivity {
 
     String CITY;
-    String API = "18940d779e820d4beed45e0868e1e756";
+    String API = "a9f683b1b3e35d51f57086b5a4485c90";
     ImageView search;
     EditText etCity;
     TextView city,country,time,temp,forecast,humidity,min_temp,max_temp,sunrises,sunsets,pressure,windSpeed;
@@ -120,10 +122,13 @@ public class MainActivity extends AppCompatActivity {
                 sunsets.setText(sunset);
                 pressure.setText(pre);
                 windSpeed.setText(windspeed);
+                Toasty.info(MainActivity.this, "Temprature in "+city_name+" is "+ temperature +" degree", Toast.LENGTH_LONG, true).show();
 
             } catch (Exception e) {
 
-                Toast.makeText(MainActivity.this, "Laude Shehr Ka Naam Sahi Daal Be " , Toast.LENGTH_SHORT).show();
+                Toasty.error(MainActivity.this, "City Not found", Toast.LENGTH_LONG, true).show();
+
+//                Toast.makeText(MainActivity.this, "Error Enter city name correctly " , Toast.LENGTH_SHORT).show();
             }
         }
     }

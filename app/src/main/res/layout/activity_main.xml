@@ -43,10 +43,10 @@
                 android:id="@+id/search"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:background="?android:attr/selectableItemBackground"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/search_icon"/>
+                android:background="?android:attr/selectableItemBackground"
+                android:src="@drawable/search_icon" />
         </RelativeLayout>
 
         <LinearLayout
