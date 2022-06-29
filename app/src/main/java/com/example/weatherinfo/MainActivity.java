@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     String API = "a9f683b1b3e35d51f57086b5a4485c90";
     ImageView search;
     EditText etCity;
-    TextView city,country,time,temp,forecast,humidity,min_temp,max_temp,sunrises,sunsets,pressure,windSpeed;
+    TextView city,country,time,temp,forecast,humidity,sunrises,sunsets,pressure,windSpeed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
             temp = (TextView) findViewById(R.id.temp);
             forecast = (TextView) findViewById(R.id.forecast);
             humidity = (TextView) findViewById(R.id.humidity);
-//            min_temp = (TextView) findViewById(R.id.min_temp);
-//            max_temp = (TextView) findViewById(R.id.max_temp);
             sunrises = (TextView) findViewById(R.id.sunrises);
             sunsets = (TextView) findViewById(R.id.sunsets);
             pressure = (TextView) findViewById(R.id.pressure);
@@ -96,8 +94,6 @@ public class MainActivity extends AppCompatActivity {
                 String temperature = main.getString("temp");
                 String cast = weather.getString("description");
                 String humi_dity = main.getString("humidity");
-//                String temp_min = main.getString("temp_min");
-//                String temp_max = main.getString("temp_max");
                 String pre = main.getString("pressure");
                 String windspeed = wind.getString("speed");
                 Long rise = sys.getLong("sunrise");
@@ -116,8 +112,6 @@ public class MainActivity extends AppCompatActivity {
                 temp.setText(temperature + "°C");
                 forecast.setText(cast);
                 humidity.setText(humi_dity);
-//                min_temp.setText(temp_min);
-//                max_temp.setText(temp_max);
                 sunrises.setText(sunrise);
                 sunsets.setText(sunset);
                 pressure.setText(pre);
@@ -126,9 +120,8 @@ public class MainActivity extends AppCompatActivity {
 
             } catch (Exception e) {
 
-                Toasty.error(MainActivity.this, "City Not found", Toast.LENGTH_LONG, true).show();
 
-//                Toast.makeText(MainActivity.this, "Error Enter city name correctly " , Toast.LENGTH_SHORT).show();
+                Toasty.error(MainActivity.this, "City  "+CITY+"  Not found", Toast.LENGTH_LONG, true).show();
             }
         }
     }
